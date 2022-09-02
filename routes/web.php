@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,18 +15,23 @@ use App\Models\Listing;
 |
 */
 
-Route::get('/', function () {
+//All listing
+Route::get('/', [ListingController::class, 'index']);
 
-    return view('listings', [
-        'heading' => 'ultimas cosas',
-        'listings' => Listing::all()
-    ]);
-});
+//Show create form
+Route::get('/listings/create',[ListingController::class, 'create']);
 
-// comprueba que el parametro este creado si no muestra un error 404
-Route::get('/listings/{listing}', function (Listing $listing){
-    return view('listing', [
-        'listing' => $listing
-    ]);
+//Store Listing data
+Route::post('/listings',[ListingController::class, 'store']);
 
-} );
+//Show edit form
+Route::get('/listings/{listing}/edit',[ListingController::class, 'edit']);
+
+//Update Listing
+Route::put('/listings/{listing}',[ListingController::class, 'update']);
+
+//Delete Listing
+Route::delete('/listings/{listing}',[ListingController::class, 'destroyy']);
+
+//Single listing
+Route::get('/listings/{listing}',[ListingController::class, 'show']);

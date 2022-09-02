@@ -11,14 +11,13 @@
             Mor<span class="text-laravel">IT</span>
         </h1>
         <p class="text-2xl text-gray-200 font-bold my-4 mb-6">
-            Encuentra trabajos y projectos relacionados al desarrollo de software
+            Encuentra trabajos que no sean <span class="text-laravel">negreros</span>
         </p>
         <div>
             <a
-                href="register.html"
+                href="/listings/create"
                 class="mt-10 bg-blue-500 hover:bg-laravel hover:text-black text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-            >Ingresa para crear una oportunidad</a
-            >
+            >Ingresa para crear una oportunidad</a>
         </div>
     </div>
 </section>

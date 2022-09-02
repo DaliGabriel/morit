@@ -12,6 +12,7 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
+    <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -24,7 +25,7 @@
             },
         };
     </script>
-    <title>Morit | Encuentra trabajos y projectos relacionados al desarrollo de software</title>
+    <title>Morit | Encuentra trabajos</title>
 </head>
 <body class="mb-48">
 <style>
@@ -74,8 +75,7 @@
 </nav>
 
 <main>
-    {{-- VIEW OUTPUT --}}
-    @yield('content')
+    {{$slot}}
 </main>
 
 
@@ -88,11 +88,11 @@
      w-50 flex-1">Copyright &copy; 2022</p>
 
     <a
-        href="create.html"
+        href="/listings/create"
         class="absolute top-1/3 right-5 bg-black text-white py-2 px-5 rounded p-6"
     >Publicar Trabajo
     </a>
 </footer>
-
+<x-flash-message/>
 </body>
 </html>

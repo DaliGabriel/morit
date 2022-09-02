@@ -1,32 +1,35 @@
-
 <style>
-    html{
+    html {
         background-color: #1a202c;
     }
-    h1{
+
+    h1 {
         color: #a0aec0;
     }
-    h2{
+
+    h2 {
         color: #cbd5e0;
     }
-    h3{
+
+    h3 {
         color: #cbd5e0;
     }
-    div{
+
+    div {
         color: #cbd5e0;
     }
-    p{
+
+    p {
         color: #cbd5e0;
     }
-    a{
+
+    a {
         text-decoration: none;
         color: #cbd5e0;
     }
 </style>
 
-@extends('layout')
-
-@section('content')
+<x-layout>
     @include('partials._search')
 
     <a href="/" class="inline-block text-white ml-4 mb-4 hover:text-laravel text-xl"
@@ -39,7 +42,7 @@
             >
                 <img
                     class="w-48 mr-6 mb-6"
-                    src="{{asset('images/no-image.png')}}"
+                    src="{{$listing->logo ? asset('storage/'.$listing->logo) : asset('/images/no-image.png')}}"
                     alt=""
                 />
 
@@ -48,7 +51,7 @@
                 </h3>
                 <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
 
-                <x-listing-tags :tagsCsv="$listing->tags" />
+                <x-listing-tags :tagsCsv="$listing->tags"/>
 
                 <div class="text-lg my-4">
                     <i class="fa-solid fa-location-dot"></i>
@@ -118,8 +121,20 @@
                 </div>
             </div>
         </x-card>
+
+        <x-card class="mt-4 p-2 flex space-x-6">
+            <a href="/listings/{{$listing->id}}/edit">
+                <i class="fa-solid fa-pencil"></i>
+            </a>
+
+            <form method="POST" action="/listings/{{$listing->id}}">
+                @csrf
+                @method('DELETE')
+                <button class="text-red-500"><i class="fa-solid fa-trash"></i>Borrar</button>
+            </form>
+        </x-card>
+
     </div>
 
-
-@endsection
+</x-layout>
 

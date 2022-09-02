@@ -3,7 +3,7 @@
 
 @php
     $tags = explode(', ', $tagsCsv);
-    @endphp
+@endphp
 
 <ul class="flex">
     @foreach($tags as $tag)
