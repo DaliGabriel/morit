@@ -29,19 +29,31 @@
 </head>
 <body class="mb-48">
 <style>
-    html{
+    html {
         background-color: #1a202c;
     }
-    h1{
+
+    h1 {
         color: #a0aec0;
     }
-    h2{
+
+    h2 {
         color: #cbd5e0;
     }
-    p{
+
+    h3 {
         color: #cbd5e0;
     }
-    a{
+
+    div {
+        color: #cbd5e0;
+    }
+
+    p {
+        color: #cbd5e0;
+    }
+
+    a {
         text-decoration: none;
         color: #cbd5e0;
     }
@@ -60,17 +72,41 @@
         />
     </a>
     <ul class="flex space-x-6 mr-6 text-lg">
+        @auth
+
         <li>
-            <a href="register.html" class="hover:text-laravel"
-            ><i class="fa-solid fa-user-plus"></i> Registrarse</a
-            >
+            <p>Bienvenido<span class="font-bold uppercase text-laravel"> {{auth()->user()->name}}</span></p>
         </li>
+
         <li>
-            <a href="login.html" class="hover:text-laravel"
-            ><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                Ingresar</a
-            >
+            <a href="/listings/manage" class="hover:text-laravel">
+                <i class="fa-solid fa-gear"></i></a>
         </li>
+
+        <li>
+            <form class="inline" method="POST" action="/logout">
+
+                @csrf
+
+                <button type="submit">
+                    <i class="fa-solid fa-right-from-bracket text-white hover:text-laravel"></i>
+                </button>
+
+            </form>
+        </li>
+        @else
+
+        <li>
+            <a href="/register" class="hover:text-laravel">
+                <i class="fa-solid fa-user-plus"></i> Registrarse</a>
+        </li>
+
+        <li>
+            <a href="/login" class="hover:text-laravel">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar</a>
+        </li>
+
+        @endauth
     </ul>
 </nav>
 

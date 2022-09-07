@@ -1,34 +1,3 @@
-<style>
-    html {
-        background-color: #1a202c;
-    }
-
-    h1 {
-        color: #a0aec0;
-    }
-
-    h2 {
-        color: #cbd5e0;
-    }
-
-    h3 {
-        color: #cbd5e0;
-    }
-
-    div {
-        color: #cbd5e0;
-    }
-
-    p {
-        color: #cbd5e0;
-    }
-
-    a {
-        text-decoration: none;
-        color: #cbd5e0;
-    }
-</style>
-
 <x-layout>
     @include('partials._search')
 
